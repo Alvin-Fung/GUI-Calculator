@@ -36,7 +36,7 @@ def clear_operation():
     window_result.delete(1.0, "end")
 
 window = tk.Tk() #This is the top level widget of Tk - represents mostly the main window of an application.
-window.title("Calculator MK6")
+window.title("Calculator MK 6")
 window.geometry("420x390")
 window_result = tk.Text(window, height=2, width=16, font=("Roboto Mono", 24)) #Establish the result's dimensions.
 window_result.grid(columnspan = 5)
