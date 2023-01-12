@@ -17,15 +17,17 @@ def add_to_operation(symbol):
 
 def evaluate_operation():
     global operation
+    # print(operation)
     try:
-        opeartion = str(eval(operation))
+        result = str(eval(operation))
+        # print(result)
         operation = ""
         window_result.delete(1.0, "end") 
-        window_result.insert(1.0, operation) 
+        window_result.insert(1.0, result) 
     
     except:
         clear_operation()
-        window_result.insert(1.0, "Error Ocurred")
+        window_result.insert(1.0, "Incorrect Syntax")
         pass
 
 def clear_operation():
@@ -35,7 +37,7 @@ def clear_operation():
 
 window = tk.Tk() #This is the top level widget of Tk - represents mostly the main window of an application.
 window.title("Calculator MK6")
-window.geometry("300x275")
+window.geometry("420x390")
 window_result = tk.Text(window, height=2, width=16, font=("Roboto Mono", 24)) #Establish the result's dimensions.
 window_result.grid(columnspan = 5)
 
@@ -71,7 +73,34 @@ btn_9.grid(row = 4, column = 3)
 btn_0 = Button(window, text ="0", command = lambda: add_to_operation(0), width = 5, font = ("Roboto Mono", 24))
 btn_0.grid(row = 5, column = 2)
 
-btn_plus = Button(window, text ="+", command = lambda: add_to_operation("+"), width = 5, font = ("Roboto Mono", 24))
-btn_plus.grid(row = 2, column = 4)
+add = Button(window, text ="+", command = lambda: add_to_operation("+"), width = 5, font = ("Roboto Mono", 24))
+add.grid(row = 2, column = 4)
+
+minus = Button(window, text = "-", command = lambda: add_to_operation("-"), width = 5, font = ("Roboto Mono", 24))
+minus.grid(row = 3, column = 4)
+
+mul = Button(window, text = "*", command = lambda: add_to_operation("*"), width = 5, font = ("Roboto Mono", 24))
+mul.grid(row = 4, column = 4 )
+
+div = Button(window, text = "/", command = lambda: add_to_operation("/"), width = 5, font = ("Roboto Mono", 24))
+div.grid(row = 5, column = 4)
+
+l_bracket = Button(window, text = "(", command = lambda: add_to_operation("("), width = 5,font = ("Roboto Mono", 24))
+l_bracket.grid(row = 5, column = 1 )
+
+r_bracket = Button(window, text = ")", command = lambda: add_to_operation(")"), width = 5, font = ("Roboto Mono", 24))
+r_bracket.grid(row = 5, column = 3 )
+
+decimal = Button(window, text = ".", command = lambda: add_to_operation("."), width = 5, font = ("Roboto Mons", 24))
+decimal.grid(row = 6, column = 1, columnspan = 2)
+
+clear = Button(window, text = "C", command = clear_operation, width = 5,font = ("Roboto Mono", 24))
+clear.grid(row = 6, column = 2, columnspan = 2)
+
+equals = Button(window, text = "=", command = evaluate_operation, width = 5, font = ("Roboto Mono", 24))
+equals.grid(row = 6, column = 3, columnspan = 2)
+
+
+
 
 window.mainloop()
