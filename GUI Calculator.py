@@ -36,15 +36,41 @@ def clear_operation():
     window_result.delete(1.0, "end")
 
 #Frames - This is required in order to switch between two variations of the calculator for different operations
-class Standard(tk.frame):
-    def change_mode():
-        pass
+
+# class Stack(tk.frame): #This handles the stack order of the frames
     
+#     def __init__(self, *args, **kwargs):
+#         window.__init__(self, *args, **kwargs)
 
+#         #The container is where the frames will be stacked
+#         #on top of each other, then the one want present
+#         #will be raised above the others
+#         container = tk.window(self)
+#         container.pack()
 
-class Scientific(tk.Frame):
-    pass
-#Label ???
+#         self.window = {}
+#         for F in (Standard, Scientific):
+#             page_name = F.__name__
+#             window = F(parent = container, controller = self)
+#             self.frames[page_name] = window
+            
+#             window.geometry("460x435")
+#             window.minsize(460,435)
+#             window.maxsize(460,435)
+            
+#         self.show_window("Standard")
+    
+#     def show_window(self, page_name):
+#         window = self.windows[page_name]
+#         window.tkraise()
+
+# THIS NEEDS MORE WORKING ON.
+
+# class Standard(tk.frame):
+#     pass
+
+# class Scientific(tk.Frame):
+#     pass
 
 
 # Window Management
@@ -61,8 +87,25 @@ window_result.grid(columnspan = 5)
 #Buttons
 # switch = Button(window, text = "Mode", command = lambda: pass)
 
-btn_1 = Button(window, text ="1", command = lambda: add_to_operation(1), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-btn_1.grid(row = 2, column = 1, padx = 5, pady = 5)
+class button(Button):
+    
+    def __init__(self, text, row, col, command, bg, **kwargs):
+        Button.__init__(self,text, row, col, command,bg, **kwargs)
+        self.text = text
+        self.row = row
+        self.column = col
+        self.command = command
+        self['bg'] =  self.color
+        self['text'] = self.text
+        self['command'] = self.command
+        row.grid(row = self.row, column = self.column)
+        
+
+
+btn_1 = button("1", 2, 1, add_to_operation(1),'grey25')
+
+# btn_1 = Button(window, text ="1", command = lambda: add_to_operation(1), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# btn_1.grid(row = 2, column = 1, padx = 5, pady = 5)
 
 btn_2 = Button(window, text ="2", command = lambda: add_to_operation(2), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
 btn_2.grid(row = 2, column = 2, padx = 5, pady = 5)
@@ -117,5 +160,9 @@ clear.grid(row = 6, column = 2, columnspan = 2, padx = 5, pady = 5)
 
 equals = Button(window, text = "=", command = evaluate_operation, width = 5, font = ("Roboto Mono", 24), bg = "grey25")
 equals.grid(row = 6, column = 3, columnspan = 2, padx = 5, pady = 5)
+
+# if __name__ ==  "__main__":
+#     window = Stack()
+#     window.mainloop()
 
 window.mainloop()
