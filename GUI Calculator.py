@@ -35,16 +35,32 @@ def clear_operation():
     operation = ""
     window_result.delete(1.0, "end")
 
+#Frames - This is required in order to switch between two variations of the calculator for different operations
+class Standard(tk.frame):
+    def change_mode():
+        pass
+    
+
+
+class Scientific(tk.Frame):
+    pass
+#Label ???
+
+
 # Window Management
 window = tk.Tk() #This is the top level widget of Tk - represents mostly the main window of an application.
 window.title("Calculator MK 6")
 window.configure(background = "grey15")
 window.geometry("460x435")
+window.minsize(460,435)
+window.maxsize(460,435)
 window_result = tk.Text(window, height=2, width=16, font=("Roboto Mono", 24)) #Establish the result's dimensions.
 window_result.grid(columnspan = 5)
 
 
 #Buttons
+# switch = Button(window, text = "Mode", command = lambda: pass)
+
 btn_1 = Button(window, text ="1", command = lambda: add_to_operation(1), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
 btn_1.grid(row = 2, column = 1, padx = 5, pady = 5)
 
