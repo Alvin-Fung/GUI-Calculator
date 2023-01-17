@@ -87,14 +87,16 @@ window_result.grid(columnspan = 5)
 #Buttons
 # switch = Button(window, text = "Mode", command = lambda: pass)
 
-class button(Button):
+class my_button(Button):
     
-    def __init__(self, text, row, col, command, bg, **kwargs):
-        Button.__init__(self,text, row, col, command,bg, **kwargs)
+    def __init__(self, text, row, col, command, bg):
+        Button.__init__(self, text, row, col, command, bg)
         self.text = text
         self.row = row
         self.column = col
         self.command = command
+        self.bg = bg
+        super().__init__()
         self['bg'] =  self.color
         self['text'] = self.text
         self['command'] = self.command
@@ -102,7 +104,7 @@ class button(Button):
         
 
 
-btn_1 = button("1", 2, 1, add_to_operation(1),'grey25')
+btn_1 = Button(my_button,"1", 2, 1, add_to_operation(1),'grey25')
 
 # btn_1 = Button(window, text ="1", command = lambda: add_to_operation(1), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
 # btn_1.grid(row = 2, column = 1, padx = 5, pady = 5)
