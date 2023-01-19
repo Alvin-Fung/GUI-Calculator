@@ -2,7 +2,6 @@
 
 import tkinter as tk
 from tkinter import *
-#can also use "import tkinter as tk" or "from tkinter import *"
 
 # global expression - this will store the result of calculations.
 operation = ""
@@ -62,7 +61,7 @@ class StandardPage(tk.Frame):
         self.size(460,435)
         self.maxsize(460,435)
         self.attributes = {
-
+            
         }
 
         window_result = tk.Text(self, height=2, width=16, font=("Roboto Mono", 24)) #Establish the result's dimensions.
