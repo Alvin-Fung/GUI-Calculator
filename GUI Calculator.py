@@ -64,7 +64,7 @@ def clear_operation():
 #         window = self.windows[page_name]
 #         window.tkraise()
 
-# THIS NEEDS MORE WORKING ON.
+# #THIS NEEDS MORE WORKING ON.
 
 # class Standard(tk.frame):
 #     pass
@@ -87,24 +87,21 @@ window_result.grid(columnspan = 5)
 #Buttons
 # switch = Button(window, text = "Mode", command = lambda: pass)
 
-class my_button(Button):
+class my_button(tk.Button):
     
-    def __init__(self, text, row, col, command, bg):
-        Button.__init__(self, text, row, col, command, bg)
-        self.text = text
-        self.row = row
-        self.column = col
-        self.command = command
-        self.bg = bg
-        super().__init__()
-        self['bg'] =  self.color
-        self['text'] = self.text
-        self['command'] = self.command
-        row.grid(row = self.row, column = self.column)
-        
+    def __init__(self, master, **kwargs):
+        super().__init__(master =master, **kwargs) #Inheritance
+        self.attributes = {"bg":'grey25', "width":'5'}
+        self.config(self.attributes)
 
+btn_1 = my_button(window,text ="1", command = lambda: add_to_operation(1))
+btn_1.grid(row = 2, column  = 1, padx = 5, pady = 5)
 
-btn_1 = Button(my_button,"1", 2, 1, add_to_operation(1),'grey25')
+# btn_2 = my_button(window,text ="2", command = lambda: add_to_operation(2))
+# btn_2.grid(row = 2, column = 2)
+
+# btn_3 = my_button(window, text ="3", command = lambda: add_to_operation(3))
+# btn_3.grid(row = 2, column = 3)
 
 # btn_1 = Button(window, text ="1", command = lambda: add_to_operation(1), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
 # btn_1.grid(row = 2, column = 1, padx = 5, pady = 5)
@@ -115,56 +112,52 @@ btn_2.grid(row = 2, column = 2, padx = 5, pady = 5)
 btn_3 = Button(window, text ="3", command = lambda: add_to_operation(3), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
 btn_3.grid(row = 2, column = 3, padx = 5, pady = 5)
 
-btn_4 = Button(window, text ="4", command = lambda: add_to_operation(4), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-btn_4.grid(row = 3, column = 1, padx = 5, pady = 5)
+# btn_4 = Button(window, text ="4", command = lambda: add_to_operation(4), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# btn_4.grid(row = 3, column = 1, padx = 5, pady = 5)
 
-btn_5 = Button(window, text ="5", command = lambda: add_to_operation(5), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-btn_5.grid(row = 3, column = 2, padx = 5, pady = 5)
+# btn_5 = Button(window, text ="5", command = lambda: add_to_operation(5), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# btn_5.grid(row = 3, column = 2, padx = 5, pady = 5)
 
-btn_6 = Button(window, text ="6", command = lambda: add_to_operation(6), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-btn_6.grid(row = 3, column = 3, padx = 5, pady = 5)
+# btn_6 = Button(window, text ="6", command = lambda: add_to_operation(6), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# btn_6.grid(row = 3, column = 3, padx = 5, pady = 5)
 
-btn_7 = Button(window, text ="7", command = lambda: add_to_operation(7), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-btn_7.grid(row = 4, column = 1, padx = 5, pady = 5)
+# btn_7 = Button(window, text ="7", command = lambda: add_to_operation(7), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# btn_7.grid(row = 4, column = 1, padx = 5, pady = 5)
 
-btn_8 = Button(window, text ="8", command = lambda: add_to_operation(8), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-btn_8.grid(row = 4, column = 2, padx = 5, pady = 5)
+# btn_8 = Button(window, text ="8", command = lambda: add_to_operation(8), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# btn_8.grid(row = 4, column = 2, padx = 5, pady = 5)
 
-btn_9 = Button(window, text ="9", command = lambda: add_to_operation(9), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-btn_9.grid(row = 4, column = 3, padx = 5, pady = 5)
+# btn_9 = Button(window, text ="9", command = lambda: add_to_operation(9), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# btn_9.grid(row = 4, column = 3, padx = 5, pady = 5)
 
-btn_0 = Button(window, text ="0", command = lambda: add_to_operation(0), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-btn_0.grid(row = 5, column = 2, padx = 5, pady = 5)
+# btn_0 = Button(window, text ="0", command = lambda: add_to_operation(0), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# btn_0.grid(row = 5, column = 2, padx = 5, pady = 5)
 
-add = Button(window, text ="+", command = lambda: add_to_operation("+"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-add.grid(row = 2, column = 4, padx = 5, pady = 5)
+# add = Button(window, text ="+", command = lambda: add_to_operation("+"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# add.grid(row = 2, column = 4, padx = 5, pady = 5)
 
-minus = Button(window, text = "-", command = lambda: add_to_operation("-"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-minus.grid(row = 3, column = 4, padx = 5, pady = 5)
+# minus = Button(window, text = "-", command = lambda: add_to_operation("-"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# minus.grid(row = 3, column = 4, padx = 5, pady = 5)
 
-mul = Button(window, text = "*", command = lambda: add_to_operation("*"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-mul.grid(row = 4, column = 4, padx = 5, pady = 5)
+# mul = Button(window, text = "*", command = lambda: add_to_operation("*"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# mul.grid(row = 4, column = 4, padx = 5, pady = 5)
 
-div = Button(window, text = "/", command = lambda: add_to_operation("/"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-div.grid(row = 5, column = 4, padx = 5, pady = 5)
+# div = Button(window, text = "/", command = lambda: add_to_operation("/"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# div.grid(row = 5, column = 4, padx = 5, pady = 5)
 
-l_bracket = Button(window, text = "(", command = lambda: add_to_operation("("), width = 5,font = ("Roboto Mono", 24), bg = "grey25")
-l_bracket.grid(row = 5, column = 1, padx = 5, pady = 5)
+# l_bracket = Button(window, text = "(", command = lambda: add_to_operation("("), width = 5,font = ("Roboto Mono", 24), bg = "grey25")
+# l_bracket.grid(row = 5, column = 1, padx = 5, pady = 5)
 
-r_bracket = Button(window, text = ")", command = lambda: add_to_operation(")"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-r_bracket.grid(row = 5, column = 3, padx = 5, pady = 5)
+# r_bracket = Button(window, text = ")", command = lambda: add_to_operation(")"), width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# r_bracket.grid(row = 5, column = 3, padx = 5, pady = 5)
 
-decimal = Button(window, text = ".", command = lambda: add_to_operation("."), width = 5, font = ("Roboto Mons", 24), bg = "grey25")
-decimal.grid(row = 6, column = 1, columnspan = 2, padx = 5, pady = 5)
+# decimal = Button(window, text = ".", command = lambda: add_to_operation("."), width = 5, font = ("Roboto Mons", 24), bg = "grey25")
+# decimal.grid(row = 6, column = 1, columnspan = 2, padx = 5, pady = 5)
 
-clear = Button(window, text = "C", command = clear_operation, width = 5,font = ("Roboto Mono", 24), bg = "grey25")
-clear.grid(row = 6, column = 2, columnspan = 2, padx = 5, pady = 5)
+# clear = Button(window, text = "C", command = clear_operation, width = 5,font = ("Roboto Mono", 24), bg = "grey25")
+# clear.grid(row = 6, column = 2, columnspan = 2, padx = 5, pady = 5)
 
-equals = Button(window, text = "=", command = evaluate_operation, width = 5, font = ("Roboto Mono", 24), bg = "grey25")
-equals.grid(row = 6, column = 3, columnspan = 2, padx = 5, pady = 5)
-
-# if __name__ ==  "__main__":
-#     window = Stack()
-#     window.mainloop()
+# equals = Button(window, text = "=", command = evaluate_operation, width = 5, font = ("Roboto Mono", 24), bg = "grey25")
+# equals.grid(row = 6, column = 3, columnspan = 2, padx = 5, pady = 5)
 
 window.mainloop()
