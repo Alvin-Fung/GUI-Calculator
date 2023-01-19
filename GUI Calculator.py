@@ -53,17 +53,13 @@ class FrameHandler(tk.Tk):
 
 class StandardPage(tk.Frame):
      
-     def __init__(self, parent, title, configure, size ):
+     def __init__(self, parent):
         #This is the top level widget of Tk - represents mostly the main window of an application.
-        super().__init__(parent, title=title, configure = configure, size=size,) 
+        super().__init__(parent) 
         self.title("Calculator MK6")
         self.configure(background = "grey15")
         self.size(460,435)
         self.maxsize(460,435)
-        self.attributes = {
-            
-        }
-
         window_result = tk.Text(self, height=2, width=16, font=("Roboto Mono", 24)) #Establish the result's dimensions.
         window_result.grid(columnspan = 5)
 
