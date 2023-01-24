@@ -114,6 +114,13 @@ class StandardPage(tk.Frame):
 
         self.pack()
 
+class ScientificPage(tk.Frame):
+
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.window_result = Operations(self, height=2, width=16, font=("Roboto Mono", 24)) #Establish the result's dimensions.
+        self.window_result.grid(columnspan = 5)
+
 #Buttons
 class CalculatorButton(tk.Button):
     
@@ -123,6 +130,9 @@ class CalculatorButton(tk.Button):
             "bg":'grey25', "font": ('Roboto Mono', 24),
             "width":'5',"padx":'5', "pady": '5'}
         self.config(self.attributes)
+
+class ButtonLayout(tk.Button):
+    pass
 
 window = Window()
 page = StandardPage(window)
