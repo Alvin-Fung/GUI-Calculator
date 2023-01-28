@@ -1,4 +1,3 @@
-import PySimpleGui as sg
 print("||Calculator MK5 by Alvin Fung||")
 
 sg.Window(title="Hellow World", layout=[[]], margins=(100, 50)).read()

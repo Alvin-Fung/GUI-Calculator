@@ -1,38 +1,8 @@
 # ||Calculator MK6 by Alvin Fung||
-
+import Operations
+import CalculatorButton
 import tkinter as tk
 from tkinter import *
-
-class Operations(tk.Text):
- 
-    def __init__(self, parent, height, width, font):
-        super().__init__(parent, height = height, width = width, font = font)
-        self.operation = "" # self expression - this will store the result of calculations.
-
-    def add_to_operation(self,symbol):
-        
-        self.operation += str(symbol)
-        self.delete(1.0 , "end") #first index position, last index position
-        #The 1 is the first line and the 0 is before the first character, "end" is end of text
-        self.insert(1.0, self.operation) #index position, string
-
-    def evaluate_operation(self):
-        
-        try:
-            result = str(eval(self.operation))
-            # print(result)
-            self.operation = ""
-            self.delete(1.0, "end") 
-            self.insert(1.0, result) 
-        
-        except:
-            self.clear_operation()
-            self.insert(1.0, "Incorrect Syntax")
-            pass
-
-    def clear_operation(self):
-        self.operation = ""
-        self.delete(1.0, "end")
 
 
 class Window(tk.Tk):# Window Management
@@ -120,16 +90,6 @@ class ScientificPage(tk.Frame):
         super().__init__(parent)
         self.window_result = Operations(self, height=2, width=16, font=("Roboto Mono", 24)) #Establish the result's dimensions.
         self.window_result.grid(columnspan = 5)
-
-#Buttons
-class CalculatorButton(tk.Button):
-    
-    def __init__(self, parent, text, function):
-        super().__init__(parent, text=text, command=function) #Inheritance
-        self.attributes = {
-            "bg":'grey25', "font": ('Roboto Mono', 24),
-            "width":'5',"padx":'5', "pady": '5'}
-        self.config(self.attributes)
 
 class ButtonLayout(tk.Button):
     pass
