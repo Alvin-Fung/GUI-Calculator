@@ -91,8 +91,8 @@ class ScientificPage(tk.Frame):
         Operations.window_result = Operations(self, height=2, width=16, font=("Roboto Mono", 24)) #Establish the result's dimensions.
         Operations.window_result.grid(columnspan = 5)
 
-class ButtonLayout(tk.Button):
-    pass
+        self.pack()
+
 
 window = Window()
 page = StandardPage(window)
