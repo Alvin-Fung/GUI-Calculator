@@ -21,7 +21,7 @@ class Operations(tk.Text):
         try:
             result = str(eval(self.operation))
             # print(result)
-            self.operation = ""
+            self.operation = result
             self.delete(1.0, "end")
             self.insert(1.0, result)
 
@@ -39,6 +39,6 @@ class Operations(tk.Text):
 
     def after_operation(self):
         ans = self.evaluate_operation(self.result) + self.add_to_operation(self.operation)
-        self.delete(1.0, self.evaluate_operation(self.result))
+        self.delete(1.0, "end")
         self.insert(1.0, ans)
         pass
