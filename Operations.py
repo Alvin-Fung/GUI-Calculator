@@ -38,7 +38,7 @@ class Operations(tk.Text):
     #I would need to change on the pre-existing operation that has been made.
 
     def after_operation(self):
-        ans = self.add_to_operation(self.operation) + self.evaluate_operation(self.result)
+        ans = self.evaluate_operation(self.result) + self.add_to_operation(self.operation)
         self.delete(1.0, self.evaluate_operation(self.result))
         self.insert(1.0, ans)
         pass

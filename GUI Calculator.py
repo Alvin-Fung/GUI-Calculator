@@ -14,6 +14,7 @@ class Window(tk.Tk):  # Window Management
         }
         self.maxsize = (460, 435)
         self.minxsize = (460, 435)
+        self.resizable(0,0)
         self.configure(self.attributes)
 
 
