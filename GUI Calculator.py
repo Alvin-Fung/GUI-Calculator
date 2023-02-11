@@ -54,7 +54,6 @@ class StandardPage(tk.Frame):
         btn_7 = CalculatorButton(
             self, "7", lambda: self.operations.add_to_operation(7))
         btn_7.grid(row=4, column=1)
-
         btn_8 = CalculatorButton(
             self, "8", lambda: self.operations.add_to_operation(8))
         btn_8.grid(row=4, column=2)
@@ -117,7 +116,7 @@ class ScientificPage(tk.Frame):
 
         self.pack()
 
-
-window = Window()
-page = StandardPage(window)
-window.mainloop()
+if __name__ == "__main__":
+    window = Window()
+    page = StandardPage(window)
+    window.mainloop()
