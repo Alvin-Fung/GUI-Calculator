@@ -31,3 +31,12 @@ class Operations(tk.Text):
     def clear_operation(self):
         self.operation = ""
         self.delete(1.0, "end")
+
+    #If I want to perform calculations on an already calculated answer: 
+    #I would need to change on the pre-existing operation that has been made.
+
+    def after_operation(self):
+        ans = self.add_to_operation(self.operation) + self.evaluate_operation(self.result)
+        self.delete(1.0, self.evaluate_operation(self.result))
+        self.insert(1.0, ans)
+        pass
