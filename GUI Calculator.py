@@ -114,6 +114,8 @@ class ScientificPage(tk.Frame):
             self, height=2, width=16, font=("Roboto Mono", 24))
         self.operations.grid(columnspan=5)
 
+    def div_btn = 
+
         self.pack()
 
 if __name__ == "__main__":
