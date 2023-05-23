@@ -14,7 +14,6 @@ class Window(tk.Tk):  # Window Management
         }
         self.maxsize = (460, 435)
         self.minxsize = (460, 435)
-        self.resizable(0,0)
         self.configure(self.attributes)
 
 
@@ -114,10 +113,12 @@ class ScientificPage(tk.Frame):
             self, height=2, width=16, font=("Roboto Mono", 24))
         self.operations.grid(columnspan=5)
 
-    def div_btn = 
 
-        self.pack()
+menuBar = Menu(Window())
+# Menu Bar 1:
 
+
+# Menu Bar 2:
 if __name__ == "__main__":
     window = Window()
     page = StandardPage(window)
